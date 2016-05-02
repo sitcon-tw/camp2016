@@ -1,0 +1,17 @@
+{
+  "name": "camp2016",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Elantris <j88107333@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/sitcon-tw/camp2016",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

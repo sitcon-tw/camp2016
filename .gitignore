@@ -1,0 +1,12 @@
+.DS_Store
+
+# packages libraries
+bower_components
+node_modules
+
+# development
+tests
+tmp
+
+# production
+public
