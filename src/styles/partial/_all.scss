@@ -1,0 +1,62 @@
+$lightBlue: #58cbfb;
+$darkBlue: #185281;
+$kuroBlue: #243650;
+$lightBlack: #333;
+$darkBlack: #121313;
+$lightRed: #FFB1B1;
+$darkRed: #af322e;
+$kuroRed: #982f2d;
+$darkGray: #7F7F7F;
+$smokeWhite: #f0f2f2;
+$darkYellow: #F1D130;
+
+$gothic: 'Microsoft JhengHei','PT Sans Narrow','Source Han Sans TWHK',sans-serif;
+$gamble: Arial, "新細明體";
+
+$baseEm: 20;
+
+*{
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin fontTitle(){
+	//font-size: 48px;
+	font-size: 48em/$baseEm;
+	font-weight: 400;
+}
+@mixin fontSubtitle(){
+	//font-size: 36px;
+	font-size: 36em/$baseEm;
+	font-weight: 400;
+}
+@mixin fontSmalltitle(){
+	//font-size: 24em;
+	font-size: 22em/$baseEm;
+	font-weight: 900;
+}
+@mixin fontArticle(){
+	//font-size: 18px;
+	font-size: 20em/$baseEm;
+	line-height: 2em;
+}
+@mixin fontExplain(){
+	//font-size: 14px;
+	font-size: 14em/$baseEm;
+	line-height: 1.3em;
+	color: gray;
+}
+
+@mixin middleCenter(){
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform-style: preserve-3d;
+	transform: translate(-50%, -50%);
+}
+
+@mixin lean( $degree:-5deg ){
+	transform-style: preserve-3d;
+	transform-origin: left top;
+	transform: skewY($degree);
+}

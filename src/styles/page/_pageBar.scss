@@ -1,0 +1,108 @@
+
+$pbHeight: 60px;
+
+@mixin fontBar(){
+	font-size: 16px;
+	height: $pbHeight;
+	line-height: $pbHeight;
+};
+@mixin buttonUp(){
+	transition-property: all;
+	transition-duration: 300ms;
+
+	&:hover{
+		transform: translate(0 , -.5em);
+	}
+}
+
+// anchor navbar
+#navbar{
+	position: relative;
+	width: 100%;
+}
+
+.navbar{
+
+	@include fontBar();
+	position: absolute;
+	top: -$pbHeight;
+	width: 100%;
+	display: block;
+	z-index: 999;
+
+	font-family: $gothic;
+	text-align: center;
+	color: #fff;
+	background-color: $darkBlack;
+	transform: translate3d(0,0,0);
+
+	box-shadow: 0px 5px 20px $darkBlack;
+
+	& *{
+		display: inline-block;
+		@include fontBar();
+	}
+
+	.barButtonSep{
+		display: inline-block;
+		margin-left: .8em;
+		margin-right: .8em;
+	}
+	
+	.barButton{
+		cursor: pointer;
+
+		&:not(:first-child){
+			@include buttonUp();
+		}
+	}
+	.nowPage{
+		color: $lightBlue;
+		transform: translate(0 , -.3em);
+	}
+
+	.barResponsive{
+		display: none;
+	}
+
+	@media screen and (max-width: 600px){
+		.barResponsive{
+			display: block;
+			color: $lightBlue;
+			cursor: pointer;
+		}
+		.barButtonSep{
+			display: none;
+		}
+
+		.barButtonBlock{
+			transition: height 500ms linear;
+			position: absolute;
+			display: none;
+			width: 100%;
+			height: auto;
+			top: $pbHeight;
+			z-index: 9999;
+			background-color: $darkBlack;
+
+			.barButtonSubBlock{
+				display: block;
+				width: 60%;
+				margin: 0 auto;
+				border-top: 1px solid $smokeWhite;
+				
+				&:first-child{
+					display: none;
+				}
+			}
+			.barButton{
+				&:hover{
+					transform: translate(0, 0);
+				}
+			}
+			.nowPage{
+				transform: translate(0, 0);
+			}
+		}
+	}
+}

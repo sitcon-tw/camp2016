@@ -1,0 +1,135 @@
+
+#coursePanel{
+
+	color: $darkText;
+	font-family: $gothic;
+
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 2em;
+	z-index: 99999;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #333;
+	background-color: rgba(0,0,0,.44);
+	color: #ccc;
+
+	.coursePanel{
+
+		width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 4em;
+		margin-bottom: 2em;
+		padding-bottom: 2em;
+		@media screen and (max-width: 720px){
+			width: 90%;
+		}
+
+		padding-top: 2em;
+		padding-bottom: 2em;
+		background-color: $darkBg;
+		border-radius: 2em;
+		box-shadow: 0 0 50px $darkBg;
+		h2{
+			@include fontSmalltitle(); 
+			color: $lightBlue;
+		}
+		p{
+			@include fontArticle();
+			line-height: 1.5em;
+			text-indent: 2em;
+			&.multiName{
+				text-indent: 1em;
+				font-weight: 900;
+			}
+		}
+
+		.panelCover{
+			width: 100%;
+		}
+		.closeArea{
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			z-index: -1;
+		}
+		.panelClose{
+			display: inline-block;
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			top: -2.5em;
+			right: -5px;
+			cursor: pointer;
+			opacity: .9;
+			&:hover{
+				opacity: 1;
+			}
+		}
+		.courseContent{
+			position: relative;
+			margin-top: 1em;
+		}
+		.title{
+			@include fontSubtitle();
+			position: absolute;
+			z-index: 100;
+			display: inline-block;
+			right: 0;
+			top: -1em;
+			font-weight: 900;
+			color: $smokeWhite;
+
+			&:before{
+				content: " ";
+				display: block;
+				position: absolute;
+				z-index: -1;
+				bottom: -10%;
+				left: -1em;
+				width: 100%;
+				height: 120%;
+				padding-left: 1em;
+				padding-right: .5em;
+				background-color: $darkRed;				
+				transform-style: preserve-3d;
+				transform-origin: left bottom;
+				transform: skewX(-15deg);
+			}
+
+			@media screen and (max-width: 700px){
+				font-size: 1.2em;
+				top: -1.2em;
+			}
+		}
+		.infoRow{
+			margin-left: 1.5em;
+			margin-top: 1em;
+			margin-right: 1em;
+			border-left: 5px solid $lightBlue;
+			padding-left: .5em;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+
+			&:not(:nth-child(2)){
+				margin-top: 2em;
+			}
+		}
+	}
+	.hr{
+		display: block;
+		padding-top: 2em;
+	}
+}
+
+.relative{
+	position: relative;
+}

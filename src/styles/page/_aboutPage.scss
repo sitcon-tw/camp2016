@@ -1,0 +1,86 @@
+
+#aboutPage{
+
+	background-color: $darkBg;
+	color: $darkText;
+	font-family: $gothic;
+
+	overflow: hidden;
+
+	.pageContainer{
+		position: relative;
+		max-width: 700px;
+		padding-top: 8em;
+		@media screen and (max-width:1200px){
+			width: 80%;
+		}
+	}
+	p{
+		@include fontArticle();
+		text-align: justify;
+	}
+	h2{
+		@include fontSmalltitle(); 
+		margin-top: 1em;
+		margin-bottom: .5em;
+		text-align: center;
+		color: $lightBlue;
+	}
+	.header{
+		@include fontSmalltitle(); 
+		display: block;
+		width: 9em;
+		margin: 0 auto;
+	}
+
+	.aboutCamp{
+		p{
+			text-indent: 2em;
+		}
+	}
+
+	.aboutSitcon{
+		margin-top: 2em;
+
+		p{
+			text-indent: 2em;
+		}
+	}
+
+	.aboutDetail{
+		width: 100%;
+		margin-top: 4em;
+
+		.detailRow{
+			display: inline-block;
+			width: 33%;
+			text-align: center;
+			vertical-align: top;
+
+			@media screen and (max-width: 900px){
+				display: block;
+				width: 100%;
+
+				&:not(:first-child){
+					margin-top: 2em;
+				}
+			}
+		}
+		p{
+			text-align: center;
+		}
+	}
+
+	.coc{
+		margin-top: 6em;
+		ul{
+			@include fontArticle();
+			padding-left: 2em;
+			margin-top: 1em;
+			margin-bottom: 1em;
+			li{
+				list-style-type: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,69 @@
+
+#staffPage .studentFeedback{
+	width: 60%;
+	margin: 0 auto;
+	padding-bottom: 280px;
+	margin-top: -100px;
+	color: $darkText;
+
+	&>h2{
+		@include fontTitle();
+	}
+
+	.studentFeedbackBlock{
+		@include fontArticle();
+		display: inline-block;
+		width: 30%;
+		vertical-align: top;
+
+		padding-left: 2%;
+		&:not(:nth-child(2)){
+			margin-left: 1%;
+			border-left: 1px solid $darkBg;
+		}
+		&.borderShow{
+			border-left-color: #666;
+		}
+
+		h2{
+			@include fontArticle();
+			font-weight: 100;
+
+			strong{
+				color: $lightBlue;
+				font-weight: 900;
+			}
+		}
+
+		.articleBlock{
+			font-size: .9em;
+			p{
+				line-height: 1.8em;
+				text-align: justify;
+			}
+		}
+	}
+
+	@media screen and (max-width: 1400px){
+	
+		.studentFeedbackBlock{
+			display: block;
+			width: 90%;
+			max-width: 600px;
+			margin: 0 auto;
+
+			&:not(:first-child){
+				margin-top: 2em;
+				margin-left: auto;
+				margin-right: auto;
+				border-left: 0;
+			}
+		}
+
+		@media screen and (max-width: 1200px){
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}

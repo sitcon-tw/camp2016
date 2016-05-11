@@ -1,0 +1,127 @@
+
+#paywayPage{
+
+	background-color: $lightBg;
+	color: $lightText;
+	font-family: $gothic;
+
+	h2{
+		@include fontTitle();
+		text-align: center;
+		margin-bottom: .5em;
+	}
+
+	a{
+		color: $darkBlue;
+		underline: none;
+	}
+
+	.paywayArticle{
+
+		&>p{
+			@include fontArticle();
+			padding-top: .5em;
+
+			a{
+				text-decoration: none;
+				img{
+					@include fontArticle();
+					height: 1em;
+				}
+			}
+			a:hover{
+				text-decoration: underline;
+			}
+		}
+		span{
+			@include fontArticle();
+			display: inline-block;
+			&.left{
+				width: 49%;
+				text-align: right;
+				margin-right: 1%;
+			}
+			&.right{
+				width: 47%;
+				vertical-align: top;
+				text-align: left;
+			}
+
+			&.quo{
+				font-size: .9em;
+				display: block;
+				padding-left: 5px;
+				margin-left: 2em;
+				border-left: 5px #aaa solid;
+			}
+
+			@media screen and (max-width: 500px){
+				&.left{ width: 30%; text-align: left; }
+				&.right{ width: 66%; }
+			}
+		}
+		ol{
+			padding-left: 3em;
+			li{
+				@include fontArticle();
+				line-height: 1.6em;
+				padding-top: .8em;
+				text-align: justify;
+				a{
+					text-decoration: none;
+				}
+			}
+		}
+
+		.registBlock{
+			display: block;
+			width: 100%;
+			text-align: center;
+			a{
+				text-decoration: none;
+			}
+			
+			.regist1 , .regist2{
+				transition: opacity 300ms linear;
+				width: 49%;
+				padding-top: .9em;
+				padding-bottom: .9em;
+				opacity: .8;
+				border-radius: 5px;
+				&:hover{
+					text-decoration: none;
+					opacity: 1;
+				}
+				& p{
+					@include fontArticle();
+					display: block;
+					padding-top: 0;
+					line-height: 1.2em;
+				}
+
+				@media screen and (max-width: 700px){
+					display: block;
+					width: 100%;
+					margin-top: .5em;
+				}
+			}
+			.regist1{
+				float: left;
+				background-color: $darkRed;
+				color: $smokeWhite;
+			}
+			.regist2{
+				float: right;
+				background-color: $darkBlue;
+				color: $smokeWhite;
+			}
+
+			&::after{
+				content: " ";
+				display: block;
+				clear: both;
+			}
+		}
+	}
+
+}

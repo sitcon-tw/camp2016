@@ -1,0 +1,109 @@
+
+$coverPagePropotion: 1440/900;
+
+#coverPage{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-color: $darkBlack;
+}
+
+.coverPage{
+
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	top: -60px;
+
+	.bg{
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.front{
+		img{
+			@include middleCenter();
+			width: 80%;
+		}
+	}
+
+	.role{
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		.boy{
+			position: absolute;
+			width: 17%;
+			top: 50%;
+			left: 50%;
+			transform-style: preserve-3d;
+			transform: translate(-160%, -55%);
+		}
+		.girl{
+			position: absolute;
+			width: 22%;
+			top: 50%;
+			left: 50%;
+			transform-style: preserve-3d;
+			transform: translate(40%, -51%);
+		}
+	}
+
+	@media screen and (max-aspect-ratio: 1440/840){
+		.front{
+			img{
+				width: 100%;
+			}
+		}
+		.role{
+			.boy{ width: 17% * 100 / 80; }
+			.girl{ width: 22% * 100 / 80; }
+		}
+	}
+		
+	@media screen and (min-aspect-ratio: 1440/840) and (max-height: 800px){
+		top: 0px;
+
+		.front{
+			img{
+				height: 100%;
+				width: auto;
+			}
+		}
+		.role{
+			.boy{
+				height: 61%;
+				width: auto;
+			}
+			.girl{
+				height: 57%;
+				width: auto;
+			}
+		}
+	}
+		
+	@media screen and (min-aspect-ratio: 1440/840) and (max-height: 600px){
+		top: -30px;
+
+		.front{
+			img{
+				height: 70%;
+				width: auto;
+			}
+		}
+		.role{
+			.boy{
+				height: 43%;
+				width: auto;
+			}
+			.girl{
+				height: 40%;
+				width: auto;
+			}
+		}
+	}
+
+}
