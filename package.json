@@ -18,15 +18,19 @@
   "homepage": "https://github.com/sitcon-tw/camp2016#readme",
   "dependencies": {
     "cli-color": "^1.1.0",
+    "flux": "^2.1.1",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "moment": "^2.13.0",
+    "object-assign": "^4.1.0",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
     "browser-sync": "^2.12.5",
-    "browserify": "^13.0.0",
+    "browserify": "^13.0.1",
     "gulp-bower": "^0.0.13",
     "gulp-cssmin": "^0.1.7",
     "gulp-jade": "^1.1.0",
@@ -34,6 +38,7 @@
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",
+    "reactify": "^0.17.1",
     "watchify": "^3.7.0"
   }
 }
