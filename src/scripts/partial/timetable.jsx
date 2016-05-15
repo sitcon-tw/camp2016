@@ -67,9 +67,20 @@ var Timetable = React.createClass({
 		});
 		return (
 			<table className="timetable">
-			{
-				timetable
-			}
+				<thead>
+					<tr>
+						<td></td>
+						<td>day1</td>
+						<td>day2</td>
+						<td>day3</td>
+						<td>day4</td>
+					</tr>
+				</thead>
+				<tbody>
+				{
+					timetable
+				}
+				</tbody>
 			</table>
 		);
 	}

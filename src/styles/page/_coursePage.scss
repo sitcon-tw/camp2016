@@ -60,7 +60,7 @@
 					vertical-align: bottom;
 					height: 1.2em;
 					width: 1.2em;
-					background-image: url('img/book.png');
+					background-image: url('../img/book.png');
 					background-size: 100% 100%;
 					background-size: cover;
 				}
@@ -70,7 +70,7 @@
 					vertical-align: bottom;
 					height: 1.1em;
 					width: 1.1em;
-					background-image: url('img/smallPerson.png');
+					background-image: url('../img/smallPerson.png');
 					background-size: 100% 100%;
 					background-size: cover;
 				}
@@ -79,7 +79,7 @@
 				color: $darkYellow;
 			}
 			&.link{
-				cursor: url(img/talk.png) 12 12, alias;
+				cursor: url(../img/talk.png) 12 12, alias;
 				&:hover{
 					background-color: #222;
 				}
