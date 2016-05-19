@@ -82,8 +82,10 @@
 			}
 			
 			.regist1 , .regist2{
+				display: block;
 				transition: opacity 300ms linear;
 				width: 49%;
+				margin: 0 auto;
 				padding-top: .9em;
 				padding-bottom: .9em;
 				opacity: .8;
@@ -106,7 +108,7 @@
 				}
 			}
 			.regist1{
-				float: left;
+				// float: left;
 				background-color: $darkRed;
 				color: $smokeWhite;
 			}

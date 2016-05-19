@@ -71,14 +71,16 @@ var CoursePage = React.createClass({
 		return (
 			<div className="coursePage pageContainer">
 				<h2>課 程</h2>
-				<div className="tableContainer">
-					<Timetable content={timetableContent} />
-				</div>
-				<CourseFeature />
+				<div>神秘議程近期公開</div>
 			</div>
 		);
 	}
 });
+
+				// <div className="tableContainer">
+				// 	<Timetable content={timetableContent} />
+				// </div>
+				// <CourseFeature />
 
 ReactDOM.render(
 	<CoursePage />,

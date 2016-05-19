@@ -1,41 +1,34 @@
-
 var staffTaChi = [
 	[
-		"總召組" , "崑元、Clarence、Penny"
+		"總召組", "子期、阿哲"
 	],
 	[
-		"行政組" , "PineApple、零葉、阿威"
+		"行政組", "Penny、葉子"
 	],
 	[
-		"行銷組" , "小燁、Mouse、蝦子"
+		"行銷組", ""
 	],
 	[
-		"活動組" , "莫風、味噌、泰泰、Queenie、PCC"
+		"課活組", "松鼠、全全、Allen Chou、Andy"
 	],
 	[
-		"財務組" , "蛋糕、魚丸"
+		"", "BobbyHo、Jeffrey Lin、家維、球魚、謝秀芳"
 	],
 	[
-		"課程組" , "ZAL、洋蔥、LegBone、靈夢、松鼠"
+		"財務組", "泰泰、L"
 	],
 	[
-		"文創組" , "工藤、Sunset、Kelvin、安迪、菲、央"
+		"文創組", "宏宏、Elantris、爛桃、白白"
 	],
 	[
-		"美生組" , "阿貓、拔辣"
+		"庶務組", "PCC、全全、懷少、阿吉、阿貓"
 	],
 	[
-		"紀錄組" , " 百香、Falcon"
+		"紀錄組", "小草"
 	],
 	[
-		"隊輔組" , "JefferySAC、Emma、Beauty、小米、阿哲"
+		"隊輔組", "拉布"
 	],
-	[
-		" " , "小寒、球球、芥龍、葉子、子期、Jeffrey Lin、YW"
-	],
-	[
-		" " , "悅悅、虎胡、寶寶、拉布、Choukai、克莉絲汀、ADR"
-	]
 ];
 
 var React = require('react');
@@ -44,40 +37,35 @@ var ruler = require('../partial/ruler.jsx');
 var Table = require('../partial/table.jsx');
 var Article = require('../partial/article.jsx');
 
-var feedbackData = [
-	{
-		title:"ZAL" , subtitle:"（本屆夏令營課程長）" , 
-		content:["在我來看，無疑去年夏令營是辦得相當成功的，有人藉此認識了社群、有人開始積極參與社群活動，這些都在在證明這點。但是去年身為學員，總覺得有些地方還可以做得更好，於是今年趁著機會加入籌備團隊，目的要讓學員取得比去年更棒的體驗與享受。" ]
-	},
-	{
-		title:"PCC" , subtitle:"（本屆夏令營活動組員）" ,
-		content:["去年的 SITCON 夏令營 是我真正開始認識並參與開源社群活動的開始，在活動中也學到了很多，更重要的是認識了許多來自 SITCON 的朋友們。在之後，我有幸可以參與到很多不同的社群活動/研討會，覺得自己應該要開始真正做出貢獻，因此順勢加入了今年的夏令營籌備團隊，希望能把夏令營辦個更好，帶領更多人接觸開源社群的世界。"]
-	},
-	{
-		title:"Penny" , subtitle:"（本屆夏令營執行秘書）" ,
-		content:["猶記去年，仍為初學者的我，滿載而歸地離開了 SITCON 第一屆夏令營。今年，我滿載著熱沈，十分榮幸的參與了第二屆夏令營的籌備。廣拓了視野，亦學習了許多，深感自己成長了不少呢！期盼這幾個月的努力，能使我們第二屆成員再度收益良多。"]
-	}
-];
+var feedbackData = [{
+	title: "球魚",
+	subtitle: "",
+	content: ["去年年初參加 SITCON 年會後，得知這個神祕的夏令營，毫不猶豫地報（ㄊㄧㄠˋ）名（ㄎㄥ）了。就這樣完成 SITCON 夏令營副本，夏令營真的很充實，而且看到很多黑黑跟大大，點滿很多技能點，走向越來越宅和中二（誤）。看到一個夏令營是由很多人彼此互（推）助（坑）而完成的，真的讓人感受到社群的精神，對夏令營的籌備團隊非常敬佩。並且看到他們，我覺得「今年有人跳坑拉我，明年我也要跳坑拉人」，讓這個夏令營不斷持續下去。"]
+}, {
+	title: "廣霖",
+	subtitle: "",
+	content: ["去年的 SITCON 夏令營 是我真正開始認識並參與開源社群活動的開始，在活動中也學到了很多，更重要的是認識了許多來自 SITCON 的朋友們。在之後，我有幸可以參與到很多不同的社群活動/研討會，覺得自己應該要開始真正做出貢獻，因此順勢加入了今年的夏令營籌備團隊，希望能把夏令營辦個更好，帶領更多人接觸開源社群的世界。"]
+}];
 
 var StudentFeedback = React.createClass({
-	getDefaultProps: function(){
+	getDefaultProps: function() {
 		return { calledAnimation: false };
 	},
-	componentDidMount: function(){
+	componentDidMount: function() {
 		window.addEventListener('scroll', this.checkReached, false);
 	},
-	checkReached: function(){
-		if( !ruler.haveReaching( this.refs.StudentFeedback ) )
+	checkReached: function() {
+		if (!ruler.haveReaching(this.refs.StudentFeedback))
 			return;
-		if( this.props.calledAnimation )
+		if (this.props.calledAnimation)
 			return;
 		this.props.calledAnimation = true;
 		window.removeEventListener('scroll', this.checkReached, false);
 		studentFeedbackAnimation();
 	},
 	render: function() {
-		var allFeedbacks = this.props.feedbackData.map(function(data,cnt){
-			return(
+		var allFeedbacks = this.props.feedbackData.map(function(data, cnt) {
+			return (
 				<div className="studentFeedbackBlock slideInUpPre" key={cnt} ref="StudentFeedback">
 					<h2>
 						<strong>{data.title}</strong>
@@ -99,24 +87,24 @@ var StudentFeedback = React.createClass({
 });
 
 var StaffPage = React.createClass({
-	getDefaultProps: function(){
+	getDefaultProps: function() {
 		return { calledAnimation: false };
 	},
-	componentDidMount: function(){
+	componentDidMount: function() {
 		window.addEventListener('scroll', this.checkReached, false);
 	},
-	checkReached: function(){
-		if( !ruler.haveReaching( this.refs.inAnchor ) )
+	checkReached: function() {
+		if (!ruler.haveReaching(this.refs.inAnchor))
 			return;
-		if( this.props.calledAnimation )
+		if (this.props.calledAnimation)
 			return;
 		this.props.calledAnimation = true;
 		window.removeEventListener('scroll', this.checkReached, false);
 		staffPageAnimation();
 	},
-	render: function(){
+	render: function() {
 		return (
-		<div>
+			<div>
 			<div className="staffPage pageContainer">
 				<div className="left">
 					<h2>工作團隊</h2>
@@ -140,33 +128,33 @@ ReactDOM.render(
 
 var staffPageAnimateOk = false;
 
-function staffPageAnimation(){
-	setTimeout( function(){ staffPageAnimateOk = true } , 800 );
+function staffPageAnimation() {
+	setTimeout(function() { staffPageAnimateOk = true }, 800);
 	var slideInUp = document.querySelectorAll('#staffPage .staffPage .slideInUpPre');
-	for(var i=0 ; i<slideInUp.length ; ++i){
-		slideInUp[i].className = slideInUp[i].className + 
+	for (var i = 0; i < slideInUp.length; ++i) {
+		slideInUp[i].className = slideInUp[i].className +
 			" delay" + (i);
 	}
-	for(var i=0 ; i<slideInUp.length ; ++i)
+	for (var i = 0; i < slideInUp.length; ++i)
 		slideInUp[i].className = slideInUp[i].className + " slideInUp";
 	slideInUp = null;
 }
 
-function studentFeedbackAnimation(){
-	if( !staffPageAnimateOk ){
-		setTimeout( function(){ studentFeedbackAnimation(); } , 100 );
+function studentFeedbackAnimation() {
+	if (!staffPageAnimateOk) {
+		setTimeout(function() { studentFeedbackAnimation(); }, 100);
 		return;
 	}
 	var slideInUp = document.querySelectorAll('#staffPage .studentFeedback .slideInUpPre');
-	for(var i=0 ; i<slideInUp.length ; ++i){
-		slideInUp[i].className = slideInUp[i].className + 
-			" delay" + (2+i*2);
+	for (var i = 0; i < slideInUp.length; ++i) {
+		slideInUp[i].className = slideInUp[i].className +
+			" delay" + (2 + i * 2);
 	}
-	for(var i=0 ; i<slideInUp.length ; ++i)
+	for (var i = 0; i < slideInUp.length; ++i)
 		slideInUp[i].className = slideInUp[i].className + " slideInUp";
-	setTimeout( function(){
-		for(var i=0 ; i<slideInUp.length ; ++i)
+	setTimeout(function() {
+		for (var i = 0; i < slideInUp.length; ++i)
 			slideInUp[i].className = slideInUp[i].className + " borderShow";
 		slideInUp = null;
-	} ,600 );
+	}, 600);
 }
