@@ -1,10 +1,11 @@
 {
   "name": "camp2016",
   "version": "1.0.0",
-  "description": "",
+  "description": "SITCON Camp 2016 Sign Up Page",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production gulp",
+    "test": "NODE_ENV=production gulp watch"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,9 @@
   },
   "homepage": "https://github.com/sitcon-tw/camp2016#readme",
   "dependencies": {
-    "browser-sync": "^2.12.8",
     "cli-color": "^1.1.0",
     "flux": "^2.1.1",
     "gulp": "^3.9.1",
-    "gulp-pug": "^3.0.2",
     "gulp-rename": "^1.2.2",
     "moment": "^2.13.0",
     "object-assign": "^4.1.0",
@@ -31,12 +30,12 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.12.5",
+    "browser-sync": "^2.12.8",
     "browserify": "^13.0.1",
     "gulp-bower": "^0.0.13",
+    "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
-    "gulp-jade": "^1.1.0",
-    "gulp-pug": "^3.0.1",
+    "gulp-pug": "^3.0.2",
     "gulp-sass": "^2.3.1",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",

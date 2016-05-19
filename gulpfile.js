@@ -7,56 +7,63 @@ var clc = require('cli-color'); // https://github.com/medikoo/cli-color
 var rename = require('gulp-rename'); // https://github.com/hparra/gulp-rename
 var sourcemaps = require('gulp-sourcemaps'); // https://github.com/floridoo/gulp-sourcemaps
 
+var production = (process.env.NODE_ENV === 'production');
+
 gulp.task('default', ['move', 'bower', 'pug', 'sass', 'react']);
+
+
+
+/*====================================
+=            Browser Sync            =
+====================================*/
+
+var browserSync = require('browser-sync').create(); // https://github.com/Browsersync/browser-sync
+var reload = browserSync.reload;
+
+gulp.task('browser-sync', function() {
+	browserSync.init({
+		server: {
+			baseDir: "./public/"
+		}
+	});
+});
+
+gulp.task('watch', ['pug:watch', 'sass:watch', 'react:watch', 'browser-sync']);
+
 
 
 /*===================================
 =            Move Assets            =
 ===================================*/
 
+var bower = require('gulp-bower'); // https://github.com/zont/gulp-bower
 var cssmin = require('gulp-cssmin'); // https://github.com/chilijung/gulp-cssmin
 var uglify = require('gulp-uglify'); // https://github.com/terinjokes/gulp-uglify
+var concat = require('gulp-concat'); // https://github.com/contra/gulp-concat
 
-gulp.task('move', function() {
+gulp.task('bower', function() {
+	return bower();
+});
+
+gulp.task('move', ['bower'], function() {
 	gulp.src([
 			'./assets/**/*',
-			'!./assets/**/*.css',
-			'!./assets/**/*.js'
 		])
 		.pipe(gulp.dest('./public'));
 
-	gulp.src('./assets/**/*.css')
-		.pipe(cssmin())
-		.pipe(gulp.dest('./public'));
-
-	gulp.src('./assets/**/*.js')
-		.pipe(uglify())
-		.pipe(gulp.dest('./public'));
+	gulp.src([
+			'./bower_components/jquery/dist/jquery.min.js'
+		])
+		.pipe(concat('lib.min.js'))
+		.pipe(uglify({ mangle: false }))
+		.pipe(gulp.dest('./public/js'));
 });
 
 
 
-/*=============================
-=            Bower            =
-=============================*/
-
-var bower = require('gulp-bower'); // https://github.com/zont/gulp-bower
-
-gulp.task('bower', function() {
-	return bower()
-		.on('end', function() {
-			gulp.src([
-					'./bower_components/jquery/dist/jquery.min.js'
-				])
-				.pipe(gulp.dest('./public/lib'));
-		});
-});
-
-
-
-/*============================
-=            Jade            =
-============================*/
+/*===========================
+=            Pug            =
+===========================*/
 
 var pug = require('gulp-pug'); // https://github.com/jamen/gulp-pug
 
@@ -64,6 +71,10 @@ gulp.task('pug', function() {
 	gulp.src(['./src/views/*.pug', './src/views/*.jade'])
 		.pipe(pug())
 		.pipe(gulp.dest('./public/'));
+});
+
+gulp.task('pug:watch', ['pug'], function() {
+	gulp.watch(['./src/views/**/*.jade', './src/views/**/*.pug'], ['pug', reload]);
 });
 
 
@@ -75,12 +86,23 @@ gulp.task('pug', function() {
 var sass = require('gulp-sass'); // https://github.com/dlmanning/gulp-sass
 
 gulp.task('sass', function() {
-	return gulp.src('./src/styles/*.scss')
-		.pipe(sourcemaps.init())
-		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-		.pipe(sourcemaps.write())
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest('./public/css'));
+	if (production) {
+		gulp.src('./src/styles/*.scss')
+			.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+			.pipe(rename({ suffix: '.min' }))
+			.pipe(gulp.dest('./public/css/'));
+	} else {
+		gulp.src('./src/styles/*.scss')
+			.pipe(sourcemaps.init())
+			.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+			.pipe(sourcemaps.write())
+			.pipe(rename({ suffix: '.min' }))
+			.pipe(gulp.dest('./public/css/'));
+	}
+});
+
+gulp.task('sass:watch', ['sass'], function() {
+	gulp.watch('./src/styles/**/*.scss', ['sass', reload]);
 });
 
 
@@ -98,7 +120,7 @@ var reactify = require('reactify'); // https://github.com/andreypopp/reactify
 var b = browserify(['./src/scripts/main.jsx'], {
 	cache: {},
 	packageCache: {},
-	debug: true,
+	debug: !production,
 	transform: [reactify]
 });
 
@@ -112,38 +134,19 @@ gulp.task('react:watch', ['react'], function() {
 });
 
 function bundle() {
-	b.bundle()
+	var tmp = b.bundle()
 		.on('error', errorLog)
-		.pipe(source('main.js'))
-		// .pipe(source('main.min.js'))
+		.pipe(source('main.min.js'))
 		.pipe(buffer())
-		// .pipe(uglify())
-		.pipe(gulp.dest('./public/js'))
-		.on('end', endLog.bind(null, 'Finished Bundle'));
+
+	if (production) tmp = tmp.pipe(uglify());
+
+	tmp.pipe(gulp.dest('./public/js/'))
+		.on('end', function() {
+			colorLog('yellowBright', 'Finished Bundle');
+			reload();
+		});
 }
-
-
-
-/*====================================
-=            Browser Sync            =
-====================================*/
-
-var browserSync = require('browser-sync').create(); // https://github.com/Browsersync/browser-sync
-
-gulp.task('browser-sync', function() {
-	browserSync.init({
-		server: {
-			baseDir: "./"
-		}
-	});
-});
-
-gulp.task('watch', ['pug', 'sass', 'react:watch', 'browser-sync'], function() {
-    var reload = browserSync.reload;
-    gulp.watch(['./src/views/**/*.jade', './src/views/**/*.pug'], ['pug'], reload);
-    gulp.watch('./src/styles/**/*.scss', ['sass'], reload);
-    gulp.watch('./public/js/**/*.js', reload);
-});
 
 
 
@@ -151,18 +154,13 @@ gulp.task('watch', ['pug', 'sass', 'react:watch', 'browser-sync'], function() {
 =            Utility            =
 ===============================*/
 
-function errorLog(err) {
+function colorLog(color, message) {
 	console.log('[%s] %s',
 		clc.blackBright(moment().format('HH:mm:ss')),
-		clc.redBright(err.message)
+		clc[color](message)
 	);
-	console.error.bind(err);
-	this.emit('end');
 }
 
-function endLog(message) {
-	console.log('[%s] %s',
-		clc.blackBright(moment().format('HH:mm:ss')),
-		clc.yellowBright(message)
-	);
+function errorLog(err) {
+	colorLog('redBright', err.stack);
 }
