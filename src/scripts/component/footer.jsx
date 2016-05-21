@@ -1,14 +1,14 @@
 
 var says = [
 	{
-		who:'Orin Chen',
-		url:'http://blog.orinx.com/sitcon-summer-camp-2014-moztw-booth/',
-		show:'很開心現場有朋友對我們的 MozTW 連續聚 很有興趣，希望能夠借由這次活動招募到更多社群成員！'
+		who:'TechNews 科技新報',
+		url:'http://technews.tw/2015/08/10/sitcon-summer-camp-2015/',
+		show:'走在街上，可以看到人手一台智慧型手機，生活周遭的事物也漸漸數位化，在這股潮流下，幾乎可以確定資訊是未來的趨勢，而資訊教育也顯得格外重要。「SITCON 學生計算機年會」從 2014 年開始......'
 	},
 	{
 		who:'揪凱',
-		url:'http://home.gamer.com.tw/creationDetail.php?sn=2518171',
-		show:'我真的覺得這趟旅行很值得，謝謝我的隊輔香菇跟味增	謝謝參與這個營隊的人，謝謝所有的工作人員	讓我的第一次有這麼棒的體驗(？	不管是在視覺、聽覺設備上，都做得很好	還有聽風大大，每一餐都吃那麼好，我覺得豪開心喔:P'
+		url:'http://home.gamer.com.tw/creationDetail.php?sn=2991598',
+		show:'猶還記得去年的SITCON Camp 2014使我學習到了許多有關電資的技巧，而今年（2015）的夏令營也終於舉行！為期四天共兩梯次的SITCON Camp 2015在聖約翰科技大學舉行！'
 	}
 ];
 
