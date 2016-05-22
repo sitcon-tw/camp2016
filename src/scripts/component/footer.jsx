@@ -44,7 +44,7 @@ var Footer = React.createClass({
 					<a target="_blank" href="https://www.youtube.com/channel/UCMXFGmpqKAowZMbvz2O2aEw">
 						<img src="img/youtube.png" title="youtube" />
 					</a>
-					<a target="_blank" href="http://sitcon.org/2015/#/">
+					<a target="_blank" href="http://sitcon.org/2016/">
 						<img src="img/sitcon.png" title="sitcon" />
 					</a>
 				</div>
