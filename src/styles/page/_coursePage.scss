@@ -75,7 +75,7 @@
 					background-size: cover;
 				}
 			}
-			&.activity{
+			&.activity, &.activity-extended{
 				color: $darkYellow;
 			}
 			&.activity-extended, &.easy-extended{
@@ -91,9 +91,12 @@
 					background-color: #222;
 				}
 			}
-			&.easy{
+			&.easy, &.easy-extended{
 				background-color: $darkGray;
 				color: $smokeWhite;
+			}
+			&.blank {
+				background: #ddd;
 			}
 		}
 		th {
