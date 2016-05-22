@@ -8,56 +8,75 @@ var timetableContent = [
 	// 	{t:["day4"]}
 	// ],
 	[
-		{t:["08:30","~","09:30"]},
-		{t:["遊戲登入"],type:"easy"},
-		{t:["傳說中的訓練課程（上）","Web","林大中"],type:"course",r:3,l:"web"},
-		{t:["傳說中的訓練課程（下）","Web","林大中"],type:"course",r:3,l:"web"},
-		{t:["0900 ~ 1100","轉職說明","視界咖啡館"],type:"activity",r:3}
+		{t: ["07:00", "~", "07:30"]},
+		{t: [], r: 5, type: "easy"},
+		{t: ["起床", "盥洗"], c: 2, type: "easy"},
+		{t: [], r: 2, type: "easy"},
 	],
 	[
-		{t:["09:30","~","10:30"]},
-		{t:["新手教學"],type:"easy"}
+		{t: ["07:30","~","08:00"]},
+		{t: ["早餐", "元氣活動"], r: 2, type: "activity"},
+		{t: ["早餐"], type: "easy"}
 	],
 	[
-		{t:["10:30","~","12:00"]},
-		{t:["角色設定"],type:"activity"}
+		{t: ["08:00","~","08:30"]},
+		{t: ["共同課程二", "GitHub Pages / Branches"], r: 2, type: "course"},
+		{t: ["起床", "盥洗"], type: "easy"}
+	],
+	[
+		{t:["08:30","~","09:00"]},
+		{t:["共同課程"], r: 2, type:"course"},
+		{t:["早餐"], type: "easy"}
+	],
+	[
+		{t:["09:00","~","09:30"]},
+		{t:["分流課程"], r: 3, type:"course"},
+		{t:["視界咖啡館"], r: 3, type: "activity"}
+	],
+	[
+		{t:["09:30","~","10:00"]},
+		{t:["山有小口，彷彿若有光", "報到"], type: "easy-extended"},
+		{t:["分流課程"], r: 2, type:"course"},
+		
+	],
+	[
+		{t:["10:00","~","12:00"]},
+		{t:["問所從來，具答之", "開幕 + 隊員破冰"], type: "activity-extended"},
 	],
 	[
 		{t:["12:00","~","13:30"]},
-		{t:["午餐","小惡魔信箱"],c:4,type:"easy"}
+		{t:["午餐"], c: 4, type: "easy"},
 	],
 	[
-		{t:["13:30","~","14:30"]},
-		{t:["消失的歷史","Git","Denny Huang"],type:"course",r:3,l:"git"},
-		{t:["來自友邦的邀請信","開源社群精神","Bob"],type:"course",l:"community"},
-		{t:["任務小技巧","Security","HrJ"],type:"course",r:3,l:"security"},
-		{t:["1230 ~ 1500","決戰時刻"],type:"activity"}
+		{t:["13:30","~","15:30"]},
+		{t:["共同課程", "JavaScript + Git"], type: "course", r: 2},
+		{t:["Debugger"], type: "activity"},
+		{t:["分流課程"], type: "course", r: 2},
+		{t:["Hackathon", "成果發表", "最後競標 + 閉幕"], r: 2, type: "activity"}
 	],
 	[
-		{t:["14:30","~","15:30"]},
-		{t:["建立在名為信任的橋樑","SITCON 故事館"],type:"course",l:"story"},
-		{t:["1500 ~ 1630","終焉之時"],type:"activity",r:2}
-	],
-	[
-		{t:["15:30","~","17:00"]},
-		{t:["戰備外援"],type:"course"},
+		{t:["15:30","~","16:00"]},
+		{t:["開源社群精神"], type: "course"}
 	],
 	[
 		{t:["17:00","~","18:00"]},
-		{t:["晚餐","小惡魔信箱"],c:3,type:"easy"},
-		{t:["1630 ~ 1700","最後的道別"],type:"easy"}
+		{t:["美酒佳肴", "晚餐"], type: "easy-extended"},
+		{t:["$餘人各復延至其家，<br>皆出酒食", "晚餐 + 社群闖關"], r: 2, type: "activity-extended"},
+		{t:["美酒佳肴", "晚餐"], type: "easy-extended"},
+		{t:["$尋向所志，<br>遂迷，不復得路", "赴歸"], type: "easy-extended"}
 	],
 	[
 		{t:["18:00","~","21:00"]},
-		{t:["革命軍的序幕"],type:"activity"},
-		{t:["與各邦的聯合晚宴"],type:"activity"},
-		{t:["最終的試煉"],type:"activity"},
-		{t:["1730 ~ 1830","勇者。再會"],type:"easy",r:2}
+		{t:["活動"], type: "activity"},
+		{t:["Hackathon"], type: "activity"},
+		{t:[], r: 2, type: "easy"}
 	],
 	[
 		{t:["21:00","~","22:00"]},
-		{t:["小隊時間","宵夜"],type:"easy",c:3}
-	]
+		{t:["宵夜"], type: "easy"},
+		{t:["神祕活動"], type: "activity"},
+		{t:["宵夜"], type: "easy"}	
+	],
 ];
 
 var React = require('react');
@@ -71,16 +90,16 @@ var CoursePage = React.createClass({
 		return (
 			<div className="coursePage pageContainer">
 				<h2>課 程</h2>
-				<div>神秘議程近期公開</div>
+				<div className="tableContainer">
+					<Timetable content={timetableContent} />
+				</div>
+				<CourseFeature />
+			// 	<div>神秘議程近期公開</div>
 			</div>
 		);
 	}
 });
 
-				// <div className="tableContainer">
-				// 	<Timetable content={timetableContent} />
-				// </div>
-				// <CourseFeature />
 
 ReactDOM.render(
 	<CoursePage />,

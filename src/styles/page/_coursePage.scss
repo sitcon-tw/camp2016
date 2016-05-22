@@ -36,7 +36,7 @@
 	tr{
 
 		font-size: 16em/$baseEm;
-		td{
+		td, th {
 			height: 1.2em;
 			line-height: 1.2em;
 			background-color: $lightText;
@@ -78,6 +78,13 @@
 			&.activity{
 				color: $darkYellow;
 			}
+			&.activity-extended, &.easy-extended{
+				p:first-child{
+					opacity: .65;
+					font-size: 1.2em;
+					line-height: 1.2em;
+				}
+			}
 			&.link{
 				cursor: url(../img/talk.png) 12 12, alias;
 				&:hover{
@@ -89,16 +96,11 @@
 				color: $smokeWhite;
 			}
 		}
-		&:first-child{
+		th {
 			font-weight: 900;
 		}
 		p{
 			margin-top: .3em;
-		}
-		tr:first-child{
-			td{
-				font-weight: 900;
-			}
 		}
 	}
 }

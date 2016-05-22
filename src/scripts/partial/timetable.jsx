@@ -70,10 +70,10 @@ var Timetable = React.createClass({
 				<thead>
 					<tr>
 						<td></td>
-						<td>day1</td>
-						<td>day2</td>
-						<td>day3</td>
-						<td>day4</td>
+						<th>day1</th>
+						<th>day2</th>
+						<th>day3</th>
+						<th>day4</th>
 					</tr>
 				</thead>
 				<tbody>
