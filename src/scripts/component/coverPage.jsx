@@ -4,7 +4,6 @@ var ReactDOM = require('react-dom');
 
 var CoverPage = React.createClass({
 	render: function(){
-		//<Waveline />
 		return (
 			<div className="coverPage">
 				<img className="bg" src="img/background.png"/>

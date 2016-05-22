@@ -58,7 +58,7 @@ var PartIn = React.createClass({
 	render: function() {
 		return (
 			<div className={"partIn popInPre "+this.props.colorPick} ref="partIn">
-				<a target="_blank" href={this.props.detail.url} style={{backgroundImage: `url(img/logos/${this.props.detail.logo})`}}>
+				<a target="_blank" href={this.props.detail.url} style={{backgroundImage: 'url(img/logos/' + this.props.detail.logo + ')'}}>
 					<div className="partInName">
 						<strong>{this.props.detail.name}</strong>
 						<div className="partInNameBg"></div>
