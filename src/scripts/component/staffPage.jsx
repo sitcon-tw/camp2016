@@ -41,10 +41,6 @@ var feedbackData = [{
 	title: "球魚",
 	subtitle: "",
 	content: ["去年年初參加 SITCON 年會後，得知這個神祕的夏令營，毫不猶豫地報（ㄊㄧㄠˋ）名（ㄎㄥ）了。就這樣完成 SITCON 夏令營副本，夏令營真的很充實，而且看到很多黑黑跟大大，點滿很多技能點，走向越來越宅和中二（誤）。看到一個夏令營是由很多人彼此互（推）助（坑）而完成的，真的讓人感受到社群的精神，對夏令營的籌備團隊非常敬佩。並且看到他們，我覺得「今年有人跳坑拉我，明年我也要跳坑拉人」，讓這個夏令營不斷持續下去。"]
-}, {
-	title: "廣霖",
-	subtitle: "",
-	content: ["去年的 SITCON 夏令營 是我真正開始認識並參與開源社群活動的開始，在活動中也學到了很多，更重要的是認識了許多來自 SITCON 的朋友們。在之後，我有幸可以參與到很多不同的社群活動/研討會，覺得自己應該要開始真正做出貢獻，因此順勢加入了今年的夏令營籌備團隊，希望能把夏令營辦個更好，帶領更多人接觸開源社群的世界。"]
 }];
 
 var StudentFeedback = React.createClass({
@@ -111,7 +107,7 @@ var StaffPage = React.createClass({
 					<Table applyClass="staffPageTable" rowClass="slideInUpPre"  ref="inAnchor">
 						{staffTaChi}
 					</Table>
-					<img src={"img/boy.png"} />
+
 				</div>
 			</div>
 
@@ -120,6 +116,8 @@ var StaffPage = React.createClass({
 		);
 	}
 });
+
+// 					<img src={"img/boy.png"} />
 
 ReactDOM.render(
 	<StaffPage />,

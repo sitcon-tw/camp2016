@@ -17,8 +17,12 @@ var aboutDetailText = [{
 	title: "主辦單位",
 	content: [
 		"SITCON 學生計算機年會",
-		"中央大學 電子計算機中心",
 		"OCF財團法人開放文化基金會"
+	]
+}, {
+	title: "協辦單位",
+	content: [
+		"中央大學 電子計算機中心"
 	]
 }, {
 	title: "活動時間",

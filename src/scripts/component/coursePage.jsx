@@ -94,7 +94,6 @@ var CoursePage = React.createClass({
 					<Timetable content={timetableContent} />
 				</div>
 				<CourseFeature />
-			// 	<div>神秘議程近期公開</div>
 			</div>
 		);
 	}

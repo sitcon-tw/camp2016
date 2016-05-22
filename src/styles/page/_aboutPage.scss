@@ -1,8 +1,8 @@
 
 #aboutPage{
 
-	background-color: $darkBg;
-	color: $darkText;
+	background-color: $lightBg;
+	color: $lightText;
 	font-family: $gothic;
 
 	overflow: hidden;
@@ -53,7 +53,7 @@
 
 		.detailRow{
 			display: inline-block;
-			width: 33%;
+			width: 50%;
 			text-align: center;
 			vertical-align: top;
 

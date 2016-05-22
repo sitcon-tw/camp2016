@@ -161,6 +161,9 @@
 			padding: 0px;
 			border: 0px;
 			cursor: pointer;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: center;
 			&[href]{
 				cursor: alias;
 			}

@@ -9,11 +9,14 @@ var partIn = [{
 		applyClass: "secondPart",
 		parts: [
 			{ name: "開放文化基金會", logo: "OCFLogo.png", url: "http://ocf.tw/" },
+			{ name: "中央大學 電子計算機中心", logo: "NCUCCLogo.png", url: "http://www.cc.ncu.edu.tw/" }
 		]
 	}, {
 		group: "特別感謝",
 		applyClass: "thirdPart",
-		parts: []
+		parts: [
+			{ name: "中央大學 網路開源社", logo: "NOSLogo.jpg", url: "http://nos.ncu.cc" }
+		]
 	}
 	/*,
 		{group:"媒體夥伴",applyClass:"mediaPart",parts:[
@@ -45,8 +48,8 @@ var popInMixins = {
 	},
 	loadPic: function() {
 		window.removeEventListener('scroll', this.loadPic, false);
-		this.refs.logoImg.src =
-			'img/logos/' + this.props.detail.logo;
+		// this.refs.logoImg.src =
+		// 	'img/logos/' + this.props.detail.logo;
 	}
 };
 
@@ -55,8 +58,7 @@ var PartIn = React.createClass({
 	render: function() {
 		return (
 			<div className={"partIn popInPre "+this.props.colorPick} ref="partIn">
-				<a target="_blank" href={this.props.detail.url}>
-					<img src="" ref="logoImg"/>
+				<a target="_blank" href={this.props.detail.url} style={{backgroundImage: `url(img/logos/${this.props.detail.logo})`}}>
 					<div className="partInName">
 						<strong>{this.props.detail.name}</strong>
 						<div className="partInNameBg"></div>

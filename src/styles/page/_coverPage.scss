@@ -15,10 +15,17 @@ $coverPagePropotion: 1440/900;
 	height: 100%;
 	overflow: hidden;
 	top: -60px;
+	background: white;
+	background: linear-gradient(180deg, #e1d8d9, #bab1a3);
 
 	.bg{
+		@include middleCenter();
 		display: block;
 		width: 100%;
+	}
+	.grass {
+		position: absolute;
+		top: 0;
 		height: 100%;
 	}
 
@@ -26,6 +33,13 @@ $coverPagePropotion: 1440/900;
 		img{
 			@include middleCenter();
 			width: 80%;
+			height: auto;
+		}
+		.mid {
+			width: 100%;
+		}
+		.btn {
+			width: 100%;
 		}
 	}
 
@@ -35,20 +49,24 @@ $coverPagePropotion: 1440/900;
 		width: 100%;
 		height: 100%;
 		.boy{
-			position: absolute;
-			width: 17%;
-			top: 50%;
-			left: 50%;
-			transform-style: preserve-3d;
-			transform: translate(-160%, -55%);
+			@include middleCenter();
+			width: 100%;
+			// position: absolute;
+			// width: 17%;
+			// top: 50%;
+			// left: 50%;
+			// transform-style: preserve-3d;
+			// transform: translate(-160%, -55%);
 		}
 		.girl{
-			position: absolute;
-			width: 22%;
-			top: 50%;
-			left: 50%;
-			transform-style: preserve-3d;
-			transform: translate(40%, -51%);
+			@include middleCenter();
+			width: 100%;
+			// position: absolute;
+			// width: 22%;
+			// top: 50%;
+			// left: 50%;
+			// transform-style: preserve-3d;
+			// transform: translate(40%, -51%);
 		}
 	}
 
@@ -58,10 +76,10 @@ $coverPagePropotion: 1440/900;
 				width: 100%;
 			}
 		}
-		.role{
-			.boy{ width: 17% * 100 / 80; }
-			.girl{ width: 22% * 100 / 80; }
-		}
+		// .role{
+		// 	.boy{ width: 17% * 100 / 80; }
+		// 	.girl{ width: 22% * 100 / 80; }
+		// }
 	}
 		
 	@media screen and (min-aspect-ratio: 1440/840) and (max-height: 800px){
@@ -73,16 +91,16 @@ $coverPagePropotion: 1440/900;
 				width: auto;
 			}
 		}
-		.role{
-			.boy{
-				height: 61%;
-				width: auto;
-			}
-			.girl{
-				height: 57%;
-				width: auto;
-			}
-		}
+		// .role{
+		// 	.boy{
+		// 		height: 61%;
+		// 		width: auto;
+		// 	}
+		// 	.girl{
+		// 		height: 57%;
+		// 		width: auto;
+		// 	}
+		// }
 	}
 		
 	@media screen and (min-aspect-ratio: 1440/840) and (max-height: 600px){
@@ -94,16 +112,16 @@ $coverPagePropotion: 1440/900;
 				width: auto;
 			}
 		}
-		.role{
-			.boy{
-				height: 43%;
-				width: auto;
-			}
-			.girl{
-				height: 40%;
-				width: auto;
-			}
-		}
+		// .role{
+		// 	.boy{
+		// 		height: 43%;
+		// 		width: auto;
+		// 	}
+		// 	.girl{
+		// 		height: 40%;
+		// 		width: auto;
+		// 	}
+		// }
 	}
 
 }

@@ -4,7 +4,7 @@
 	margin: 0 auto;
 	padding-bottom: 280px;
 	margin-top: -100px;
-	color: $darkText;
+	color: $lightText;
 
 	&>h2{
 		@include fontTitle();
@@ -13,7 +13,8 @@
 	.studentFeedbackBlock{
 		@include fontArticle();
 		display: inline-block;
-		width: 47%;
+		margin-left: 24%;
+		width: 48%;
 		vertical-align: top;
 
 		padding-left: 2%;
