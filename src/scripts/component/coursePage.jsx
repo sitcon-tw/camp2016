@@ -9,9 +9,9 @@ var timetableContent = [
 	// ],
 	[
 		{t: ["07:00", "~", "07:30"]},
-		{t: [], r: 5, type: "easy"},
+		{t: [], r: 5, type: "blank"},
 		{t: ["起床", "盥洗"], c: 2, type: "easy"},
-		{t: [], r: 2, type: "easy"},
+		{t: [], r: 2, type: "blank"},
 	],
 	[
 		{t: ["07:30","~","08:00"]},
@@ -69,7 +69,7 @@ var timetableContent = [
 		{t:["18:00","~","21:00"]},
 		{t:["活動"], type: "activity"},
 		{t:["Hackathon"], type: "activity"},
-		{t:[], r: 2, type: "easy"}
+		{t:[], r: 2, type: "blank"}
 	],
 	[
 		{t:["21:00","~","22:00"]},
