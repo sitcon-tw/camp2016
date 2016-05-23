@@ -15,33 +15,33 @@ var timetableContent = [
 	],
 	[
 		{t: ["07:30","~","08:00"]},
-		{t: ["早餐", "元氣活動"], r: 2, type: "activity"},
+		{t: ["早餐 + 元氣活動", "CSS 選擇器"], r: 2, type: "activity"},
 		{t: ["早餐"], type: "easy"}
 	],
 	[
 		{t: ["08:00","~","08:30"]},
-		{t: ["共同課程二", "GitHub Pages / Branches"], r: 2, type: "course"},
+		{t: ["共同課程三", "GitHub Pages / Branches"], r: 2, type: "course"},
 		{t: ["起床", "盥洗"], type: "easy"}
 	],
 	[
 		{t:["08:30","~","09:00"]},
-		{t:["共同課程"], r: 2, type:"course"},
+		{t:["共同課程二", "HTTP 請求、RESTful 概念"], r: 2, type:"course"},
 		{t:["早餐"], type: "easy"}
 	],
 	[
 		{t:["09:00","~","09:30"]},
-		{t:["分流課程"], r: 3, type:"course"},
+		{t:["分流課程" , "$<span>資料視覺化<hr>Express.js、PM2 套件</span>"], r: 3, type:"course split"},
 		{t:["視界咖啡館"], r: 3, type: "activity"}
 	],
 	[
 		{t:["09:30","~","10:00"]},
-		{t:["山有小口，彷彿若有光", "報到"], type: "easy-extended"},
-		{t:["分流課程"], r: 2, type:"course"},
+		{t:["山有小口，彷彿若有光", "報到"], type: "easy extended"},
+		{t:["分流課程", "複習與交流"], r: 2, type:"course"},
 		
 	],
 	[
 		{t:["10:00","~","12:00"]},
-		{t:["問所從來，具答之", "開幕 + 隊員破冰"], type: "activity-extended"},
+		{t:["問所從來，具答之", "開幕 + 隊員破冰"], type: "activity extended"},
 	],
 	[
 		{t:["12:00","~","13:30"]},
@@ -49,9 +49,9 @@ var timetableContent = [
 	],
 	[
 		{t:["13:30","~","15:30"]},
-		{t:["共同課程", "JavaScript + Git"], type: "course", r: 2},
+		{t:["共同課程一", "JavaScript + Git 基礎"], type: "course", r: 2},
 		{t:["Debugger"], type: "activity"},
-		{t:["分流課程"], type: "course", r: 2},
+		{t:["分流課程", "$<span>jQuery、Ajax、CSS 框架<hr>Node.js、NPM 環境建置、<br>爬蟲基礎</span>"], type: "course split", r: 2},
 		{t:["Hackathon", "成果發表", "最後競標 + 閉幕"], r: 2, type: "activity"}
 	],
 	[
@@ -60,10 +60,10 @@ var timetableContent = [
 	],
 	[
 		{t:["17:00","~","18:00"]},
-		{t:["美酒佳肴", "晚餐"], type: "easy-extended"},
-		{t:["$餘人各復延至其家，<br>皆出酒食", "晚餐 + 社群闖關"], r: 2, type: "activity-extended"},
-		{t:["美酒佳肴", "晚餐"], type: "easy-extended"},
-		{t:["$尋向所志，<br>遂迷，不復得路", "赴歸"], type: "easy-extended"}
+		{t:["美酒佳肴", "晚餐"], type: "easy extended"},
+		{t:["$餘人各復延至其家，<br>皆出酒食", "晚餐 + 社群闖關"], r: 2, type: "activity extended"},
+		{t:["美酒佳肴", "晚餐"], type: "easy extended"},
+		{t:["$尋向所志，<br>遂迷，不復得路", "赴歸"], type: "easy extended"}
 	],
 	[
 		{t:["18:00","~","21:00"]},
