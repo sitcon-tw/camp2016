@@ -1,84 +1,73 @@
-
-#aboutPage{
-
+#aboutPage,
+#cocPage {
 	background-color: $lightBg;
 	color: $lightText;
 	font-family: $gothic;
-
 	overflow: hidden;
-
-	.pageContainer{
+	.pageContainer {
 		position: relative;
 		max-width: 700px;
 		padding-top: 8em;
-		@media screen and (max-width:1200px){
+		@media screen and (max-width: 1200px) {
 			width: 80%;
 		}
 	}
-	p{
+	p {
 		@include fontArticle();
 		text-align: justify;
 	}
-	h2{
-		@include fontSmalltitle(); 
+	h2 {
+		@include fontSmalltitle();
 		margin-top: 1em;
 		margin-bottom: .5em;
 		text-align: center;
 		color: $lightBlue;
 	}
-	.header{
-		@include fontSmalltitle(); 
+	.header {
+		@include fontSmalltitle();
 		display: block;
 		width: 9em;
 		margin: 0 auto;
 	}
-
-	.aboutCamp{
-		p{
+	.aboutCamp {
+		p {
 			text-indent: 2em;
 		}
 	}
-
-	.aboutSitcon{
+	.aboutSitcon {
 		margin-top: 2em;
-
-		p{
+		p {
 			text-indent: 2em;
 		}
 	}
-
-	.aboutDetail{
+	.aboutDetail {
 		width: 100%;
 		margin-top: 4em;
-
-		.detailRow{
+		.detailRow {
 			display: inline-block;
 			width: 50%;
 			text-align: center;
 			vertical-align: top;
-
-			@media screen and (max-width: 900px){
+			@media screen and (max-width: 900px) {
 				display: block;
 				width: 100%;
-
-				&:not(:first-child){
+				&:not(:first-child) {
 					margin-top: 2em;
 				}
 			}
 		}
-		p{
+		p {
 			text-align: center;
 		}
 	}
-
-	.coc{
+	.coc {
 		margin-top: 6em;
-		ul{
+		ul {
 			@include fontArticle();
 			padding-left: 2em;
 			margin-top: 1em;
 			margin-bottom: 1em;
-			li{
+			li {
 				list-style-type: none;
 			}
 		}
