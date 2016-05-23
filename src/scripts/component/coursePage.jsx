@@ -63,7 +63,7 @@ var timetableContent = [
 		{t:["美酒佳肴", "晚餐"], type: "easy extended"},
 		{t:["$餘人各復延至其家，<br>皆出酒食", "晚餐 + 社群闖關"], r: 2, type: "activity extended"},
 		{t:["美酒佳肴", "晚餐"], type: "easy extended"},
-		{t:["$尋向所志，<br>遂迷，不復得路", "赴歸"], type: "easy extended"}
+		{t:["$尋向所志，<br>遂迷，不復得路", "賦歸"], type: "easy extended"}
 	],
 	[
 		{t:["18:00","~","21:00"]},
