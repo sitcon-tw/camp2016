@@ -4,8 +4,9 @@
   "description": "SITCON Camp 2016 Sign Up Page",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production gulp",
-    "test": "NODE_ENV=production gulp watch"
+    "start": "npm install && bower install && gulp",
+    "test": "NODE_ENV=production gulp watch",
+    "run": "NODE_ENV=production gulp"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,8 @@
     "gulp-rename": "^1.2.2",
     "moment": "^2.13.0",
     "object-assign": "^4.1.0",
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },

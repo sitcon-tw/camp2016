@@ -36,16 +36,11 @@ gulp.task('watch', ['pug:watch', 'sass:watch', 'react:watch', 'browser-sync']);
 =            Move Assets            =
 ===================================*/
 
-var bower = require('gulp-bower'); // https://github.com/zont/gulp-bower
 var cssmin = require('gulp-cssmin'); // https://github.com/chilijung/gulp-cssmin
 var uglify = require('gulp-uglify'); // https://github.com/terinjokes/gulp-uglify
 var concat = require('gulp-concat'); // https://github.com/contra/gulp-concat
 
-gulp.task('bower', function() {
-	return bower();
-});
-
-gulp.task('move', ['bower'], function() {
+gulp.task('move', function() {
 	gulp.src([
 			'./assets/**/*',
 		])

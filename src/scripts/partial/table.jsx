@@ -48,7 +48,7 @@ var Table = React.createClass({
 			);
 		});
 		return (
-			<div className={this.props.applyClass}>
+			<div className={this.props.applyClass} ref="table">
 				{allRows}
 			</div>
 		);

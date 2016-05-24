@@ -90,7 +90,7 @@ var StaffPage = React.createClass({
 		window.addEventListener('scroll', this.checkReached, false);
 	},
 	checkReached: function() {
-		if (!ruler.haveReaching(this.refs.inAnchor))
+		if (!ruler.haveReaching(this.refs.inAnchor.refs.table))
 			return;
 		if (this.props.calledAnimation)
 			return;
@@ -101,23 +101,20 @@ var StaffPage = React.createClass({
 	render: function() {
 		return (
 			<div>
-			<div className="staffPage pageContainer">
-				<div className="left">
-					<h2>工作團隊</h2>
-					<Table applyClass="staffPageTable" rowClass="slideInUpPre"  ref="inAnchor">
-						{staffTaChi}
-					</Table>
-
+				<div className="staffPage pageContainer">
+					<img src={"img/boy.png"} />
+					<div className="left">
+						<h2>工作團隊</h2>
+						<Table applyClass="staffPageTable" rowClass="slideInUpPre"  ref="inAnchor">
+							{staffTaChi}
+						</Table>
+					</div>
 				</div>
+				<StudentFeedback feedbackData={feedbackData}/>
 			</div>
-
-			<StudentFeedback feedbackData={feedbackData}/>
-		</div>
 		);
 	}
 });
-
-// 					<img src={"img/boy.png"} />
 
 ReactDOM.render(
 	<StaffPage />,
