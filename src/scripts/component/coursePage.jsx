@@ -133,7 +133,7 @@ var CoursePanel = React.createClass({
 				<div className="relative">
 					<img className="panelClose" src="img/close.png"
 						  onClick={this.closePanel} />
-					<img className="panelCover" src="img/infoCover.png" />
+					{/* <img className="panelCover" src="img/infoCover.png" /> */}
 					{this.state.pageData}
 				</div>
 				<div className="closeArea" onClick={this.closePanel}></div>

@@ -9,7 +9,7 @@ var sourcemaps = require('gulp-sourcemaps'); // https://github.com/floridoo/gulp
 
 var production = (process.env.NODE_ENV === 'production');
 
-gulp.task('default', ['move', 'bower', 'pug', 'sass', 'react']);
+gulp.task('default', ['move', 'pug', 'sass', 'react']);
 
 
 
@@ -45,13 +45,6 @@ gulp.task('move', function() {
 			'./assets/**/*',
 		])
 		.pipe(gulp.dest('./public'));
-
-	gulp.src([
-			'./bower_components/jquery/dist/jquery.min.js'
-		])
-		.pipe(concat('lib.min.js'))
-		.pipe(uglify({ mangle: false }))
-		.pipe(gulp.dest('./public/js'));
 });
 
 

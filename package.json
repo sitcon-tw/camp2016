@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm install && bower install && gulp",
     "test": "NODE_ENV=production gulp watch",
-    "run": "NODE_ENV=production gulp"
+    "build:all": "NODE_ENV=production gulp"
   },
   "repository": {
     "type": "git",
