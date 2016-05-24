@@ -6,7 +6,7 @@ var staffTaChi = [
 		"行政組", "Penny、葉子"
 	],
 	[
-		"行銷組", ""
+		"行銷組", "飛魚、文鴻"
 	],
 	[
 		"課活組", "松鼠、全全、Allen Chou、Andy"
