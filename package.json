@@ -4,7 +4,7 @@
   "description": "SITCON Camp 2016 Sign Up Page",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && bower install && gulp",
+    "start": "npm install && gulp",
     "test": "NODE_ENV=production gulp watch",
     "build:all": "NODE_ENV=production gulp"
   },
