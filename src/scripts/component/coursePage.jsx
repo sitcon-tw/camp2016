@@ -20,7 +20,7 @@ var timetableContent = [
 	],
 	[
 		{t: ["08:00","~","08:30"]},
-		{t: ["共同課程三", "GitHub Pages / Branches"], r: 2, type: "course"},
+		{t: ["共同課程三", "GitHub Pages / Git Branches"], r: 2, type: "course"},
 		{t: ["起床", "盥洗"], type: "easy"}
 	],
 	[
@@ -30,13 +30,13 @@ var timetableContent = [
 	],
 	[
 		{t:["09:00","~","09:30"]},
-		{t:["分流課程" , "$<span>資料視覺化<hr>Express.js、PM2 套件</span>"], r: 3, type:"course split"},
+		{t:["分流課程二" , "$<span>資料視覺化<hr>Express.js、PM2 套件</span>"], r: 3, type:"course split"},
 		{t:["視界咖啡館"], r: 3, type: "activity"}
 	],
 	[
 		{t:["09:30","~","10:00"]},
 		{t:["山有小口，彷彿若有光", "報到"], type: "easy extended"},
-		{t:["分流課程", "複習與交流"], r: 2, type:"course"},
+		{t:["分流課程一", "$<span>jQuery、Ajax、CSS 框架<hr>Node.js、NPM、爬蟲基礎</span>"], r: 2, type:"course split"},
 		
 	],
 	[
@@ -51,7 +51,7 @@ var timetableContent = [
 		{t:["13:30","~","15:30"]},
 		{t:["共同課程一", "JavaScript + Git 基礎"], type: "course", r: 2},
 		{t:["Debugger"], type: "activity"},
-		{t:["分流課程", "$<span>jQuery、Ajax、CSS 框架<hr>Node.js、NPM 環境建置、<br>爬蟲基礎</span>"], type: "course split", r: 2},
+		{t:["分流課程三", "複習與交流"], type: "course", r: 2},
 		{t:["Hackathon", "成果發表", "最後競標 + 閉幕"], r: 2, type: "activity"}
 	],
 	[
