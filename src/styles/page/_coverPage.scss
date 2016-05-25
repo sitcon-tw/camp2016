@@ -1,24 +1,19 @@
-
 $coverPagePropotion: 1440/900;
-
-#coverPage{
+#coverPage {
 	position: relative;
 	width: 100%;
 	height: 100%;
 	background-color: $darkBlack;
 }
 
-.coverPage{
-
+.coverPage {
 	position: relative;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	// top: -60px;
 	background: white;
 	background: linear-gradient(180deg, #e1d8d9, #bab1a3);
-
-	.bg{
+	.bg {
 		@include middleCenter();
 		display: block;
 		width: 100%;
@@ -28,100 +23,45 @@ $coverPagePropotion: 1440/900;
 		top: 0;
 		height: 100%;
 	}
-
-	.front{
-		img{
+	.top {
+		width: 80%;
+	}
+	.front {
+		img {
 			@include middleCenter();
 			width: 80%;
 			height: auto;
 		}
-		.mid {
-			width: 100%;
-		}
-		.btn {
-			width: 100%;
-		}
 	}
-
-	.role{
+	.role {
 		position: absolute;
 		top: 0;
 		width: 100%;
 		height: 100%;
-		.boy{
-			@include middleCenter();
-			width: 100%;
-			// position: absolute;
-			// width: 17%;
-			// top: 50%;
-			// left: 50%;
-			// transform-style: preserve-3d;
-			// transform: translate(-160%, -55%);
-		}
-		.girl{
-			@include middleCenter();
-			width: 100%;
-			// position: absolute;
-			// width: 22%;
-			// top: 50%;
-			// left: 50%;
-			// transform-style: preserve-3d;
-			// transform: translate(40%, -51%);
-		}
 	}
-
-	@media screen and (max-aspect-ratio: 1440/840){
-		.front{
-			img{
+	@media screen and (max-aspect-ratio: 1440/840) {
+		.front {
+			img {
 				width: 100%;
 			}
 		}
-		// .role{
-		// 	.boy{ width: 17% * 100 / 80; }
-		// 	.girl{ width: 22% * 100 / 80; }
-		// }
 	}
-		
-	@media screen and (min-aspect-ratio: 1440/840) and (max-height: 800px){
+	@media screen and (min-aspect-ratio: 1440/840) and (max-height: 800px) {
 		top: 0px;
-
-		.front{
-			img{
+		.front {
+			img {
 				height: 100%;
 				width: auto;
 			}
 		}
-		// .role{
-		// 	.boy{
-		// 		height: 61%;
-		// 		width: auto;
-		// 	}
-		// 	.girl{
-		// 		height: 57%;
-		// 		width: auto;
-		// 	}
-		// }
 	}
-		
-	@media screen and (min-aspect-ratio: 1440/840) and (max-height: 600px){
+	@media screen and (min-aspect-ratio: 1440/840) and (max-height: 600px) {
 		top: -30px;
-
-		.front{
-			img{
+		.front {
+			img {
 				height: 70%;
 				width: auto;
 			}
 		}
-		// .role{
-		// 	.boy{
-		// 		height: 43%;
-		// 		width: auto;
-		// 	}
-		// 	.girl{
-		// 		height: 40%;
-		// 		width: auto;
-		// 	}
-		// }
 	}
-
 }

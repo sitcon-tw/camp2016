@@ -9,6 +9,9 @@ var CoverPage = React.createClass({
 				<img className="bg" src="img/background.png"/>
 				<img className="grass" src="img/grass.png"/>
 				<img className="bg" src="img/front.png"/>
+				<div className="front">
+					<img className="bg top" src="img/top.png"/>
+				</div>
 			</div>
 		);
 	}
