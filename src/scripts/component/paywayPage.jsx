@@ -23,7 +23,7 @@ var paywayParagraphs = [
 			報名截止\
 		</span>\
 		<span class='right'>\
-			2016 . 06 . 05\
+			2016 . 06 . 12\
 		</span>",
 	"$ <span> </span>",
 	"$ 本次營隊報名採用KKTIX <a id='linkDetailProc' href='data/SITCONCamp2016takePartIn.pdf' target='_blank'>詳細報名流程</a>",
