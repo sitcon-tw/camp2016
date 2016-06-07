@@ -55,7 +55,7 @@ var timetableContent = [
 		{t:["Hackathon", "成果發表", "最後競標 + 閉幕"], r: 2, type: "activity"}
 	],
 	[
-		{t:["15:30","~","16:00"]},
+		{t:["15:30","~","17:00"]},
 		{t:["開源社群精神"], type: "course"}
 	],
 	[
