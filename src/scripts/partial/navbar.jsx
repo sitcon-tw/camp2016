@@ -5,8 +5,8 @@ var barContent = [
 	{ page: "SITCON 夏令營", dest: "coverPage" },
 	{ page: "關於", dest: "aboutPage" },
 	{ page: "課程", dest: "coursePage" },
-	{ page: "報名", dest: "paywayPage" },
 	{ page: "錄取", dest: "enrollPage" },
+	{ page: "報名", dest: "paywayPage" },
 	{ page: "工作團隊", dest: "staffPage" },
 	{ page: "贊助", dest: "sponsorPage" },
 ];

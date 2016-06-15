@@ -28,8 +28,8 @@ var paywayParagraphs = [
 	"$ <span> </span>",
 	"$ 本次營隊報名採用KKTIX <a id='linkDetailProc' href='data/SITCONCamp2016takePartIn.pdf' target='_blank'>詳細報名流程</a>",
 	"$ <div class='registBlock'>\
-			<a target='_blank' class='regist1' href='http://sitcon.kktix.cc/events/camp-16-1'>\
-				<p>我要報名</p>\
+			<a target='_blank' class='regist1 disabled' href='http://sitcon.kktix.cc/events/camp-16-1'>\
+				<p>報名截止</p>\
 				<p>08.02 ~ 08.05</p>\
 			</a>\
 		</div>",
