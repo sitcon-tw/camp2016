@@ -47,6 +47,7 @@ var CourseWorldCafe = React.createClass({
 				<p><strong>唐鳳</strong>現任國發會開放資料諮詢委員、十二年國教課發會委員，為零時政府 (g0v) 萌典、vTaiwan.tw 等多項專案貢獻者，於蘋果電腦、牛津大學出版社、Socialtext 等機構兼任顧問。專業領域為互動空間設計、程式語言學、計算語言學。</p>
 				<p><strong>吳淩（lingling）</strong>HITCON GIRLS 創辦人，台灣科技大學碩士生，《Girls in Tech Taiwan》"40 Under 40 Women in Tech" 獲獎者，曾經到韓國、中國等資安演討會演講，研究領域是資安事件調查、程式安全與逆向工程。</p>
 				<p><strong>Kaede</strong>革命家、創業家、駭客、系統架構師、搖滾歌手。十一歲自學程式設計，十四歲開始破解軟體，十九歲創立陽光沙灘BBS並發明水球。深耕網路資訊與行動商務領域二十餘年，參與過KKBOX、Omusic、Richi、TechOrange這些新創團隊的草創過程，也曾貢獻於HP、中華電信、Yahoo等企業。日前創立 cto.tw，要為台灣培育一百位技術長。</p>
+				<p><strong>Denny Huang</strong>SITCON 學生計算機年會共同發起人，2013 及 2014 年會總召，目前於雷亞遊戲（Rayark Inc.）擔任遊戲後端工程師；在正規教育中特例獨行，妄想透過改善教育讓台灣更進步，崇尚開源精神，熱愛使用者界面 (UI) 以外的多種技術。</p>
 			</div>
 		);
 	}
