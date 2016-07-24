@@ -12,10 +12,18 @@ var partIn = [{
 			{ name: "中央大學 電子計算機中心", logo: "NCUCCLogo.png", url: "http://www.cc.ncu.edu.tw/" }
 		]
 	}, {
+		group: '協辦單位',
+		applyClass: 'thirdPart',
+		parts: [
+			{ name: '國立政治大學-ITSA社群運算與巨量資料跨校資源中心', logo: 'ITSALogo.png', url: 'https://www.itsa.org.tw/' },
+			{ name: '國立中央大學-資訊工程學系', logo: 'NCUCSIELogo.png', url: 'http://www.csie.ncu.edu.tw/' }
+		]
+	}, {
 		group: "特別感謝",
 		applyClass: "thirdPart",
 		parts: [
-			{ name: "中央大學 網路開源社", logo: "NOSLogo.jpg", url: "http://nos.ncu.cc" }
+			{ name: "中央大學 網路開源社", logo: "NOSLogo.jpg", url: "http://nos.ncu.cc" },
+			{ name: "財團法人資訊工業策進會", logo: "IIILogo.png", url: "http://www.iii.org.tw/" }
 		]
 	}
 	/*,
