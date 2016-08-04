@@ -9,13 +9,13 @@ var staffTaChi = [
 		"行銷組", "飛魚、文鴻"
 	],
 	[
-		"課活組", "松鼠、全全、Allen Chou、Andy"
+		"課活組", "松鼠、蝦子、全全、Allen Chou、Andy、BobbyHo、Bryce"
 	],
 	[
-		"", "BobbyHo、Jeffrey Lin、家維、球魚、謝秀芳、王詩堯"
+		"", "Jeffrey Lin、夯、家維、球魚、詩堯、謝秀芳、鈴鐺、零夢"
 	],
 	[
-		"財務組", "泰泰、L、徐聖翔、聽風"
+		"財務組", "泰泰、L"
 	],
 	[
 		"文創組", "宏宏、Elantris、爛桃、白白"
@@ -24,11 +24,17 @@ var staffTaChi = [
 		"庶務組", "PCC、全全、懷少、阿吉、阿貓"
 	],
 	[
-		"紀錄組", "百香、小草"
+		"紀錄組", "百香、小草、Hiram"
 	],
 	[
-		"隊輔組", "拉布"
+		"隊輔組", "拉布、IU"
 	],
+	[
+		"", "銘、Susu、野足、小學生、柚子、巧巧、Deemo、EJ"
+	],
+	[
+		"", "Gent、小巨人、Roger、文月、SCJ、虎胡、ㄅㄌ、哈哈"
+	]
 ];
 
 var React = require('react');
