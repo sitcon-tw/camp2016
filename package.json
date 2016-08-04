@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm install && gulp",
-    "test": "NODE_ENV=production gulp watch",
+    "dev": "NODE_ENV=production gulp watch",
     "build:all": "NODE_ENV=production gulp"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/sitcon-tw/camp2016#readme",
   "dependencies": {
+    "events": "^1.1.1",
     "flux": "^2.1.1",
     "moment": "^2.14.1",
     "object-assign": "^4.1.0",
@@ -26,18 +27,22 @@
     "react-dom": "^15.2.0"
   },
   "devDependencies": {
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
     "browser-sync": "^2.13.0",
     "browserify": "^13.0.1",
     "cli-color": "^1.1.0",
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-bower": "^0.0.13",
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
+    "gulp-if": "^2.0.1",
     "gulp-pug": "^3.0.3",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.0.0-alpha",
-    "gulp-uglify": "^1.5.4",
+    "gulp-uglify": "^2.0.0",
     "reactify": "^1.1.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",

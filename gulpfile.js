@@ -1,15 +1,17 @@
 'use strict';
 
-var fs = require('fs');
-var gulp = require('gulp'); // https://github.com/gulpjs/gulp
-var moment = require('moment'); // https://github.com/moment/moment/
-var clc = require('cli-color'); // https://github.com/medikoo/cli-color
-var rename = require('gulp-rename'); // https://github.com/hparra/gulp-rename
-var sourcemaps = require('gulp-sourcemaps'); // https://github.com/floridoo/gulp-sourcemaps
+const fs = require('fs');
+const gulp = require('gulp'); // https://github.com/gulpjs/gulp
+const moment = require('moment'); // https://github.com/moment/moment/
+const clc = require('cli-color'); // https://github.com/medikoo/cli-color
+const rename = require('gulp-rename'); // https://github.com/hparra/gulp-rename
+const sourcemaps = require('gulp-sourcemaps'); // https://github.com/floridoo/gulp-sourcemaps
+const gulpif = require('gulp-if'); // https://github.com/robrich/gulp-if
 
-var production = (process.env.NODE_ENV === 'production');
+var env = process.env.NODE_ENV;
+if (env !== 'production') env = 'development';
 
-gulp.task('default', ['move', 'pug', 'sass', 'react']);
+gulp.task('default', ['move', 'pug', 'sass', 'react:lib', 'react:app']);
 
 
 
@@ -17,8 +19,8 @@ gulp.task('default', ['move', 'pug', 'sass', 'react']);
 =            Browser Sync            =
 ====================================*/
 
-var browserSync = require('browser-sync').create(); // https://github.com/Browsersync/browser-sync
-var reload = browserSync.reload;
+const browserSync = require('browser-sync').create(); // https://github.com/Browsersync/browser-sync
+const reload = browserSync.reload;
 
 gulp.task('browser-sync', function() {
 	browserSync.init({
@@ -36,9 +38,9 @@ gulp.task('watch', ['pug:watch', 'sass:watch', 'react:watch', 'browser-sync']);
 =            Move Assets            =
 ===================================*/
 
-var cssmin = require('gulp-cssmin'); // https://github.com/chilijung/gulp-cssmin
-var uglify = require('gulp-uglify'); // https://github.com/terinjokes/gulp-uglify
-var concat = require('gulp-concat'); // https://github.com/contra/gulp-concat
+const cssmin = require('gulp-cssmin'); // https://github.com/chilijung/gulp-cssmin
+const uglify = require('gulp-uglify'); // https://github.com/terinjokes/gulp-uglify
+const concat = require('gulp-concat'); // https://github.com/contra/gulp-concat
 
 gulp.task('move', function() {
 	gulp.src([
@@ -53,7 +55,7 @@ gulp.task('move', function() {
 =            Pug            =
 ===========================*/
 
-var pug = require('gulp-pug'); // https://github.com/jamen/gulp-pug
+const pug = require('gulp-pug'); // https://github.com/jamen/gulp-pug
 
 gulp.task('pug', function() {
 	gulp.src(['./src/views/*.pug', './src/views/*.jade'])
@@ -71,22 +73,20 @@ gulp.task('pug:watch', ['pug'], function() {
 =            Sass            =
 ============================*/
 
-var sass = require('gulp-sass'); // https://github.com/dlmanning/gulp-sass
+const sass = require('gulp-sass'); // https://github.com/dlmanning/gulp-sass
+const autoprefixer = require('gulp-autoprefixer'); // https://github.com/sindresorhus/gulp-autoprefixer
 
 gulp.task('sass', function() {
-	if (production) {
-		gulp.src('./src/styles/*.scss')
-			.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-			.pipe(rename({ suffix: '.min' }))
-			.pipe(gulp.dest('./public/css/'));
-	} else {
-		gulp.src('./src/styles/*.scss')
-			.pipe(sourcemaps.init())
-			.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-			.pipe(sourcemaps.write())
-			.pipe(rename({ suffix: '.min' }))
-			.pipe(gulp.dest('./public/css/'));
-	}
+	gulp.src('./src/styles/*.scss')
+		.pipe(gulpif(env === 'development', sourcemaps.init()))
+		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+		.pipe(autoprefixer({
+			browsers: ['> 1%', 'last 3 versions', 'Firefox >= 20'],
+			cascade: false
+		}))
+		.pipe(gulpif(env === 'development', sourcemaps.write()))
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(gulp.dest('./public/css/'));
 });
 
 gulp.task('sass:watch', ['sass'], function() {
@@ -99,42 +99,58 @@ gulp.task('sass:watch', ['sass'], function() {
 =            React            =
 =============================*/
 
-var browserify = require('browserify'); // https://github.com/substack/node-browserify
-var watchify = require('watchify'); // https://github.com/substack/watchify
-var source = require('vinyl-source-stream'); // https://github.com/hughsk/vinyl-source-stream
-var buffer = require('vinyl-buffer'); // https://github.com/hughsk/vinyl-buffer
-var reactify = require('reactify'); // https://github.com/andreypopp/reactify
+const browserify = require('browserify'); // https://github.com/substack/node-browserify
+const watchify = require('watchify'); // https://github.com/substack/watchify
+const source = require('vinyl-source-stream'); // https://github.com/hughsk/vinyl-source-stream
+const buffer = require('vinyl-buffer'); // https://github.com/hughsk/vinyl-buffer
+const babelify = require('babelify'); // https://github.com/babel/babelify
 
-var b = browserify(['./src/scripts/main.jsx'], {
+var dependencies = Object.keys(require('./package.json').dependencies);
+
+var app_bundler = browserify(['./src/scripts/main.jsx'], {
 	cache: {},
 	packageCache: {},
-	debug: !production,
-	transform: [reactify]
+	debug: (env === 'development'),
+	transform: [
+		['babelify', { presets: ['react'] }]
+	]
 });
 
-gulp.task('react', function() {
-	bundle();
+var lib_bundler = browserify({
+	debug: (env === 'development'),
 });
 
-gulp.task('react:watch', ['react'], function() {
-	b.plugin(watchify);
-	b.on('update', bundle);
-});
-
-function bundle() {
-	var tmp = b.bundle()
-		.on('error', errorLog)
-		.pipe(source('main.min.js'))
-		.pipe(buffer())
-
-	if (production) tmp = tmp.pipe(uglify());
-
-	tmp.pipe(gulp.dest('./public/js/'))
-		.on('end', function() {
-			colorLog('yellowBright', 'Finished Bundle');
-			reload();
-		});
+for (var i in dependencies) {
+	lib_bundler.require(dependencies[i]);
+	app_bundler.external(dependencies[i]);
 }
+
+function bundle(b, output, mangle) {
+	b.bundle()
+		.on('error', errorLog)
+		.pipe(source(output))
+		.pipe(buffer())
+		.pipe(gulpif(env === 'production', uglify({ mangle: mangle })))
+		.on('error', errorLog)
+		.pipe(gulp.dest('./public/js/'));
+}
+
+gulp.task('react:lib', function() {
+	bundle(lib_bundler, 'main.lib.js', false);
+});
+
+gulp.task('react:app', function() {
+	bundle(app_bundler, 'main.min.js', true);
+});
+
+gulp.task('react:watch', ['react:app'], function() {
+	app_bundler.plugin(watchify);
+	app_bundler.on('log', function(msg) { colorLog('yellowBright', msg); });
+	app_bundler.on('update', function(ids) {
+		bundle(app_bundler, 'main.min.js', true);
+		browserSync.reload();
+	});
+});
 
 
 
@@ -143,10 +159,7 @@ function bundle() {
 ===============================*/
 
 function colorLog(color, message) {
-	console.log('[%s] %s',
-		clc.blackBright(moment().format('HH:mm:ss')),
-		clc[color](message)
-	);
+	console.log(`[${ clc.blackBright(moment().format('HH:mm:ss')) }] ${ clc[color](message) }`);
 }
 
 function errorLog(err) {
